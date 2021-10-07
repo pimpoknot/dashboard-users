@@ -3,8 +3,8 @@ import { getUsers } from "./getUsers";
 
 
 
-export function useUser () {
-    return useQuery('users', getUsers,{
+export function useUsers (page: number) {
+    return useQuery(['users', page], () => getUsers(page),{
         staleTime: 1000 * 5
     });
 }
